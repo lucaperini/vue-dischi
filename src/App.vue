@@ -20,9 +20,9 @@ export default {
 
 <style lang="scss">
 @import './assets/scss/style.scss';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap');
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 </style>

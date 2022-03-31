@@ -1,11 +1,16 @@
 <template>
-    <main class="container-fluid px-5">
-        <div v-for="(element, index) in albumList" :key="index" class="col-6 md-4 lg-3 mb-3">
-            <Album :albumElement="element" />
+    <main>
+        <div class="container p-5 gap-1">
+            <div class="d-flex row row-cols-5">
+                <div 
+                    v-for="(element, index) in albumList" 
+                    :key="index" class="d-inline-block">
+                    <Album :albumElement="element" />
+                </div>
+            </div>
         </div>
     </main>
 </template>
-
 <script>
 import axios from "axios";
 import Album from './Album.vue';
@@ -14,7 +19,7 @@ export default {
     name: "AlbumList",
     components: {
         Album,
-    },
+    },  
     data: function(){
         return {
             apiAlbum : "https://flynn.boolean.careers/exercises/api/array/music",
@@ -41,6 +46,14 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+main {
+    background-color: rgb(33, 44, 58);
+    height: 100%
+}
+.container {
+    max-width:1000px;
+}
 
 </style>
