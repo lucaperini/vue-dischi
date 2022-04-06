@@ -2,11 +2,12 @@
     <main>
         <div class="container p-5 gap-1">
             <div class="d-flex row row-cols-5">
-                <div 
-                    v-for="(element, index) in albumList" 
-                    :key="index" class="d-inline-block">
-                    <Album :albumElement="element" />
-                </div>
+                <Album
+                    v-for="(element, index) in filteredDiscsList" 
+                    :key="index" 
+                    class="d-inline-block"
+                    :albumElement="element"
+                />
             </div>
         </div>
     </main>
@@ -17,43 +18,56 @@ import Album from './Album.vue';
 
 export default {
     name: "AlbumList",
+    props: ['selectedGenre'],
     components: {
         Album,
     },  
     data: function(){
         return {
-            apiAlbum : "https://flynn.boolean.careers/exercises/api/array/music",
             albumList : null,
-        }
-    },
-    created: function(){
-        this.getAlbumList(this.apiAlbum);
+            genresList : [],
+            }
         
     },
-    methods: {
-        getAlbumList(apiUrl){
-        axios
-        .get(apiUrl)
-        .then((result) => {
-            this.albumList = result.data.response;
-            console.table(this.albumList);
-        })
-        .catch((error) => {
-            console.error(error);
-        })
+    
+    computed: {
+        filteredDiscsList(){
+            if(this.selectedGenre === ''){
+                return this.albumList;
+            }
+            return this.albumList.filter(
+                (element) => element.genre === this.selectedGenre)
         }
     },
-}
+
+    created(){
+        axios
+            .get('https://flynn.boolean.careers/exercises/api/array/music')
+            .then((result) => {
+                
+                this.albumList = result.data.response;
+                
+                this.albumList.forEach((discElement) => {
+                    if (!this.genresList.includes(discElement.genre)){
+                        this.genresList.push(discElement.genre)
+                    }
+                })
+                this.$emit('loadedGenres', this.genresList);
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+    }
+} 
 </script>
 
 <style lang="scss" scoped>
 
 main {
-    background-color: rgb(33, 44, 58);
+    
     height: 100%
 }
 .container {
     max-width:1000px;
 }
-
 </style>

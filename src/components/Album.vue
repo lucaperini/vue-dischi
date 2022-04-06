@@ -8,6 +8,7 @@
                         <h5 class="card-title text-center">{{albumElement.title}}</h5>
                         <p class="card-text d-inline-block">{{albumElement.author}}</p>
                         <p class="small-text">{{albumElement.year}}</p>
+                        <p class="small-text">{{albumElement.genre}}</p>
                     </div>
                 </div>
             </div>
