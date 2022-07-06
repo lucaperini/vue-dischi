@@ -1,11 +1,10 @@
 <template>
     <main>
         <div class="container p-5 gap-1">
-            <div class="d-flex row row-cols-5">
+            <div class="d-flex row row-cols-3">
                 <Album
                     v-for="(element, index) in filteredDiscsList" 
                     :key="index" 
-                    class="d-inline-block"
                     :albumElement="element"
                 />
             </div>
@@ -68,6 +67,7 @@ main {
     height: 100%
 }
 .container {
-    max-width:1000px;
+    max-width:850px;
+    
 }
 </style>

@@ -1,9 +1,10 @@
 <template>
 <nav class="navbar navbar-light bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">
-        <img src="../assets/spotify_icon.png" alt="main logo spotify">
+        <a class="navbar-brand text-white" href="#">
+        <img class="mr-2 fs-1" src="../assets/vynil.png" alt="main logo spotify"> VUENYL
         </a>
+        
         <select 
             class="form-select" 
             aria-label="Default select example" 

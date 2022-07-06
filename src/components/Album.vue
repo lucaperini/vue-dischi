@@ -1,51 +1,65 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 text-center pb-3">
-                <div class="card" style="width:10rem;">
-                    <img class="card-img-top p-3" :src="albumElement.poster" :alt="albumElement.title">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">{{albumElement.title}}</h5>
-                        <p class="card-text d-inline-block">{{albumElement.author}}</p>
-                        <p class="small-text">{{albumElement.year}}</p>
-                        <p class="small-text">{{albumElement.genre}}</p>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row flex-column">
+      <div class="col-12 text-center pb-3">
+        <div class="card rounded" style="width: 14rem">
+          <img
+            class="card-img-top p-3"
+            :src="albumElement.poster"
+            :alt="albumElement.title"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center text-warning">
+              {{ albumElement.title }}
+            </h5>
+            <p class="card-text badge bg-success p-2">
+              {{ albumElement.author }}
+            </p>
+            <p class="small-text badge bg-success p-2">
+              {{ albumElement.year }}
+            </p>
+            <p class="small-text badge bg-success p-2">
+              {{ albumElement.genre }}
+            </p>
+          </div>
         </div>
-    </div>  
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 export default {
-    name: 'AlbumObject',
-    props: {'albumElement' : Object},
-}
+  name: "AlbumObject",
+  props: { albumElement: Object },
+};
 </script>
 <style lang="scss" scoped>
-
 .card {
-    background-color: rgb(48, 58, 69) ;
-    border-radius:0;
-    height:310px;
-    
+  background-color: rgb(48, 58, 69);
+  height: 350px;
+  padding-bottom: 0.5rem;
 }
 .card-body {
-    padding:.2rem;
+  padding: 0.2rem;
 }
-.card-body h5{
-    padding:.3rem;
-    
+.card-body h5 {
+  padding: 0.3rem;
+  font-size: 1.3rem;
 }
-h5{
-    color:white;
-    text-transform: uppercase;
-    line-height:1.2rem;
-    font-weight:bold;
-    font-size: 1.2rem;
+h5 {
+  color: white;
+  text-transform: uppercase;
+  line-height: 1.8rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.card-title h5{
+    line-height:.8rem;
 }
 p {
-    line-height:.1rem;
-    font-size:.7rem;
-    color:darkgray;
+  line-height: 0.3em;
+  font-size: 0.6rem;
+  color: white;
+  margin-right: 10px;
 }
 </style>
