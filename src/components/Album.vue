@@ -8,13 +8,14 @@
             :src="albumElement.poster"
             :alt="albumElement.title"
           />
+
           <div class="card-body">
+            <p class="fs-6 text-center text-white">
+              {{ albumElement.author }}
+            </p>
             <h5 class="card-title text-center text-warning">
               {{ albumElement.title }}
             </h5>
-            <p class="card-text badge bg-success p-2">
-              {{ albumElement.author }}
-            </p>
             <p class="small-text badge bg-success p-2">
               {{ albumElement.year }}
             </p>
@@ -36,7 +37,7 @@ export default {
 <style lang="scss" scoped>
 .card {
   background-color: rgb(48, 58, 69);
-  height: 350px;
+  height: 380px;
   padding-bottom: 0.5rem;
 }
 .card-body {
@@ -49,13 +50,14 @@ export default {
 h5 {
   color: white;
   text-transform: uppercase;
-  line-height: 1.8rem;
+  line-height: 1.3rem;
   font-weight: bold;
   font-size: 1.2rem;
 }
-.card-title h5{
-    line-height:.8rem;
+.card-title h5 {
+  line-height: 0.8rem;
 }
+
 p {
   line-height: 0.3em;
   font-size: 0.6rem;

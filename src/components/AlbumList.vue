@@ -1,7 +1,7 @@
 <template>
     <main>
         <div class="container p-5 gap-1">
-            <div class="d-flex row row-cols-3">
+            <div class="d-flex row row-cols-3 align-content-center">
                 <Album
                     v-for="(element, index) in filteredDiscsList" 
                     :key="index" 
